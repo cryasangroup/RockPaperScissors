@@ -7,9 +7,9 @@ namespace RockPaperScissors
         string playerChoice = string.Empty;
         string computerChoice = string.Empty;
         string draw = string.Empty;
-        string[] Options = { "R", "P", "S", "P", "S", "R" };
+        readonly string[] Options = { "R", "P", "S", "P", "S", "R" };
         string winner = string.Empty;
-        Random random = new Random();
+        Random random = new();
         int computerScore;
         int playerScore;
         int round = 0;
@@ -146,45 +146,35 @@ namespace RockPaperScissors
 
         private void ShowWinner(string winner)
         {
-            using (Form form = new Form())
+            using Form form = new();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Size = new Size(500, 500);
+
+            PictureBox pb = new()
             {
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.Size = new Size(500, 500);
+                Dock = DockStyle.Fill,
+                SizeMode = PictureBoxSizeMode.Zoom
+            };
 
-                PictureBox pb = new PictureBox();
-                pb.Dock = DockStyle.Fill;
-                pb.SizeMode = PictureBoxSizeMode.Zoom;
-                //pb.Location = new Point(100, 0);
+            Label label = new()
+            {
+                Font = new Font("Segoe UI", 18, FontStyle.Bold)
+            };
 
-                Label label = new Label();
-                label.Font = new Font("Segoe UI", 18, FontStyle.Bold);
-                //label.MinimumSize = new Size(500,18);
-
-
-
-                if (winner == "Player 1 Wins!")
-                {
-                    pb.Image = Resources.Winner2;
-                    form.Text = "Player 1 Wins " + playerScore + " to " + computerScore + "!";
-                }
-                else
-                {
-                    pb.Image = Resources.robot;
-                    form.Text = "Computer Wins " + computerScore + " to " + playerScore + "!";
-                }
-                label.Text = form.Text;
-
-                //form.Controls.Add(label);
-                form.Controls.Add(pb);
-
-                //GroupBox groupBox1 = new GroupBox();
-                //groupBox1.Controls.Add(pb);
-                //groupBox1.Controls.Add(label);
-
-
-                //form.Controls.Add(groupBox1);
-                form.ShowDialog();
+            if (winner == "Player 1 Wins!")
+            {
+                pb.Image = Resources.Winner2;
+                form.Text = "Player 1 Wins " + playerScore + " to " + computerScore + "!";
             }
+            else
+            {
+                pb.Image = Resources.robot;
+                form.Text = "Computer Wins " + computerScore + " to " + playerScore + "!";
+            }
+            label.Text = form.Text;
+
+            form.Controls.Add(pb);
+            form.ShowDialog();
         }
     }
 
