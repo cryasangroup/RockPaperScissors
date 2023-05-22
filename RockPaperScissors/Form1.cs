@@ -106,7 +106,6 @@ namespace RockPaperScissors
             lblCPUChoice.Visible = false;
             playerChoice = string.Empty;
             computerChoice = string.Empty;
-            draw = string.Empty;
             winner = string.Empty;
             computerScore = 0;
             playerScore = 0;
