@@ -136,7 +136,7 @@ namespace RockPaperScissors
                 lblCPUDraw.Text = "Draw!";
                 lblPlayerDraw.Text = "Draw!";
             }
-            else if (playerChoice == "ROCK" && computerChoice == "PAAPER" || playerChoice == "SCISSORS" && computerChoice == "ROCK" || playerChoice == "PAPER" && computerChoice == "SCISSORS")
+            else if (playerChoice == "ROCK" && computerChoice == "PAPER" || playerChoice == "SCISSORS" && computerChoice == "ROCK" || playerChoice == "PAPER" && computerChoice == "SCISSORS")
             {
                 computerScore++;
                 lblCPUWinner.Visible = true;
