@@ -52,9 +52,10 @@
             // 
             // btnRock
             // 
+            btnRock.FlatStyle = FlatStyle.System;
             btnRock.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnRock.Location = new Point(128, 482);
-            btnRock.Margin = new Padding(4, 4, 4, 4);
+            btnRock.Margin = new Padding(4);
             btnRock.Name = "btnRock";
             btnRock.Size = new Size(158, 65);
             btnRock.TabIndex = 0;
@@ -67,7 +68,7 @@
             // 
             btnPaper.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnPaper.Location = new Point(422, 482);
-            btnPaper.Margin = new Padding(4, 4, 4, 4);
+            btnPaper.Margin = new Padding(4);
             btnPaper.Name = "btnPaper";
             btnPaper.Size = new Size(158, 65);
             btnPaper.TabIndex = 1;
@@ -80,7 +81,7 @@
             // 
             btnScissors.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnScissors.Location = new Point(706, 482);
-            btnScissors.Margin = new Padding(4, 4, 4, 4);
+            btnScissors.Margin = new Padding(4);
             btnScissors.Name = "btnScissors";
             btnScissors.Size = new Size(158, 65);
             btnScissors.TabIndex = 2;
@@ -92,7 +93,7 @@
             // CPU_PIC
             // 
             CPU_PIC.Location = new Point(442, 86);
-            CPU_PIC.Margin = new Padding(4, 4, 4, 4);
+            CPU_PIC.Margin = new Padding(4);
             CPU_PIC.Name = "CPU_PIC";
             CPU_PIC.Size = new Size(125, 125);
             CPU_PIC.SizeMode = PictureBoxSizeMode.Zoom;
@@ -102,7 +103,7 @@
             // PLAYER_PIC
             // 
             PLAYER_PIC.Location = new Point(442, 269);
-            PLAYER_PIC.Margin = new Padding(4, 4, 4, 4);
+            PLAYER_PIC.Margin = new Padding(4);
             PLAYER_PIC.Name = "PLAYER_PIC";
             PLAYER_PIC.Size = new Size(125, 125);
             PLAYER_PIC.SizeMode = PictureBoxSizeMode.Zoom;
@@ -276,7 +277,7 @@
             Controls.Add(btnPaper);
             Controls.Add(btnRock);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form1";
             Text = "Rock Paper Scissors";
             ((System.ComponentModel.ISupportInitialize)CPU_PIC).EndInit();

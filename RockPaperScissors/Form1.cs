@@ -27,6 +27,11 @@ namespace RockPaperScissors
             lblRoundPlayed.Visible = false;
         }
 
+        /// <summary>
+        /// Determine the winner of the game, display the winner and reset the application to the original state.
+        /// </summary>
+        /// <param name="sender">The button that was pressed</param>
+        /// <param name="e">The event</param>
         private void MakeChoiceEvent(object sender, EventArgs e)
         {
             lblCPU.Text = "Computer Score";
@@ -79,6 +84,9 @@ namespace RockPaperScissors
             }
         }
 
+        /// <summary>
+        /// Reset the application to the original state.
+        /// </summary>
         private void ResetApplication()
         {
             this.Controls.Clear();
@@ -100,6 +108,12 @@ namespace RockPaperScissors
             totalRounds = 7;
         }
 
+        /// <summary>
+        /// Set the text and image for the player and computer.
+        /// </summary>
+        /// <param name="text">The Tag letter of the button selected</param>
+        /// <param name="pic">The image selected</param>
+        /// <returns>The name of the image selected</returns>
         private string UpdateTextandImage(string text, PictureBox pic)
         {
             string word = string.Empty;
@@ -121,6 +135,9 @@ namespace RockPaperScissors
             return word;
         }
 
+        /// <summary>
+        /// Check the game to see who won and determine the round.
+        /// </summary>
         private void CheckGame()
         {
             if (computerChoice == playerChoice)
@@ -144,6 +161,10 @@ namespace RockPaperScissors
             lblPlayerresult.Text = playerScore.ToString();
         }
 
+        /// <summary>
+        /// Display the winner of the game.
+        /// </summary>
+        /// <param name="winner">A message containing the winner of the game</param>
         private void ShowWinner(string winner)
         {
             using Form form = new();
@@ -176,6 +197,7 @@ namespace RockPaperScissors
             form.Controls.Add(pb);
             form.ShowDialog();
         }
+
     }
 
 }
