@@ -59,7 +59,7 @@
             btnRock.Name = "btnRock";
             btnRock.Size = new Size(158, 65);
             btnRock.TabIndex = 0;
-            btnRock.Tag = "R";
+            btnRock.Tag = "ROCK";
             btnRock.Text = "Rock";
             btnRock.UseVisualStyleBackColor = true;
             btnRock.Click += MakeChoiceEvent;
@@ -72,7 +72,7 @@
             btnPaper.Name = "btnPaper";
             btnPaper.Size = new Size(158, 65);
             btnPaper.TabIndex = 1;
-            btnPaper.Tag = "P";
+            btnPaper.Tag = "PAPER";
             btnPaper.Text = "Paper";
             btnPaper.UseVisualStyleBackColor = true;
             btnPaper.Click += MakeChoiceEvent;
@@ -85,7 +85,7 @@
             btnScissors.Name = "btnScissors";
             btnScissors.Size = new Size(158, 65);
             btnScissors.TabIndex = 2;
-            btnScissors.Tag = "S";
+            btnScissors.Tag = "SCISSORS";
             btnScissors.Text = "Scissors";
             btnScissors.UseVisualStyleBackColor = true;
             btnScissors.Click += MakeChoiceEvent;

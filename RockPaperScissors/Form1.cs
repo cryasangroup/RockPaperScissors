@@ -4,12 +4,11 @@ namespace RockPaperScissors
 {
     public partial class Form1 : Form
     {
-        string playerChoice = string.Empty;
+        string? playerChoice = string.Empty;
         string computerChoice = string.Empty;
-        string draw = string.Empty;
-        readonly string[] Options = { "R", "P", "S", "P", "S", "R" };
+        readonly string[] Options = { "ROCK", "PAPER", "SCISSORS", "PAPER", "SCISSORS", "ROCK" };
         string winner = string.Empty;
-        Random random = new();
+        readonly Random random = new();
         int computerScore;
         int playerScore;
         int round = 0;
@@ -44,8 +43,15 @@ namespace RockPaperScissors
             lblPlayerChoice.Visible = true;
             lblCPUChoice.Visible = true;
 
-            Button tempButton = sender as Button;
-            playerChoice = (string)tempButton.Tag;
+            Button? tempButton = sender as Button;
+            if (tempButton?.Tag != null)
+            {
+                playerChoice = tempButton?.Tag as string;
+            }
+            else
+            {
+                playerChoice = null;
+            }
             int i = random.Next(0, Options.Length);
             computerChoice = Options[i];
             lblPlayerChoice.Text = "Player is: " + UpdateTextandImage(playerChoice, PLAYER_PIC);
@@ -111,28 +117,14 @@ namespace RockPaperScissors
         /// <summary>
         /// Set the text and image for the player and computer.
         /// </summary>
-        /// <param name="text">The Tag letter of the button selected</param>
+        /// <param name="text">The name of the button selected</param>
         /// <param name="pic">The image selected</param>
         /// <returns>The name of the image selected</returns>
-        private string UpdateTextandImage(string text, PictureBox pic)
+        private string UpdateTextandImage(string? text, PictureBox pic)
         {
-            string word = string.Empty;
-            switch (text)
-            {
-                case "R":
-                    word = "Rock";
-                    pic.Image = Properties.Resources.ROCK;
-                    break;
-                case "P":
-                    word = "Paper";
-                    pic.Image = Properties.Resources.PAPER;
-                    break;
-                case "S":
-                    word = "Scissors";
-                    pic.Image = Properties.Resources.SCISSORS;
-                    break;
-            }
-            return word;
+            if (text == null) return "";
+            pic.Image = Resources.ResourceManager.GetObject(text) as Image;
+            return text;
         }
 
         /// <summary>
@@ -145,7 +137,7 @@ namespace RockPaperScissors
                 lblCPUDraw.Text = "Draw!";
                 lblPlayerDraw.Text = "Draw!";
             }
-            else if (playerChoice == "R" && computerChoice == "P" || playerChoice == "S" && computerChoice == "R" || playerChoice == "P" && computerChoice == "S")
+            else if (playerChoice == "ROCK" && computerChoice == "PAAPER" || playerChoice == "SCISSORS" && computerChoice == "ROCK" || playerChoice == "PAPER" && computerChoice == "SCISSORS")
             {
                 computerScore++;
                 lblCPUWinner.Visible = true;
